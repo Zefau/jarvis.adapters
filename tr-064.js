@@ -1,7 +1,7 @@
 import { v5 as uuid } from 'uuid';
+import _rfdc from 'rfdc/default';
 
 import { validateStates } from '../adapters';
-const clone = require('rfdc')();
 
 export default 'tr-064';
 export const namespace = 'tr-064';
@@ -146,7 +146,7 @@ export function root(objects, options) {
 				
 				// loop assigned state keys
 				for (const stateKey in STATE_MAPPING[key]) {
-					const s = clone(STATE_MAPPING[key][stateKey]);
+					const s = _rfdc(STATE_MAPPING[key][stateKey]);
 					
 					// add general states to device
 					if (stateList.indexOf(namespace + '.' + instance + '.' + key + s.state) > -1 || stateList.indexOf(namespace + '.' + instance + '.' + key + s.action) > -1) {

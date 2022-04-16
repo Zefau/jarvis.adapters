@@ -1,5 +1,5 @@
 import { validateStates, detectFunction } from '../adapters';
-const clone = require('rfdc')();
+import _rfdc from 'rfdc/default';
 
 export default 'Shelly';
 export const namespace = 'shelly';
@@ -324,7 +324,7 @@ export function parse(deviceStructure, options) {
 			'name': name || deviceStructure.objects[deviceStructure.root].common.name,
 			'function': 'socket',
 			'states': {
-				...clone(STATE_MAPPING.socket),
+				..._rfdc(STATE_MAPPING.socket),
 				'firmware': {
 					'state': '.firmware',
 					'action': '.firmwareupdate',
@@ -346,7 +346,7 @@ export function parse(deviceStructure, options) {
 		// Shelly i3
 		else if (deviceStructure.root.indexOf('SHIX3-') > -1) {
 			device.states = {
-				...clone(STATE_MAPPING.switch),
+				..._rfdc(STATE_MAPPING.switch),
 				...device.states
 			}
 		}
@@ -359,7 +359,7 @@ export function parse(deviceStructure, options) {
 				
 				device.function = 'blind';
 				device.states = {
-					...clone(STATE_MAPPING.blind),
+					..._rfdc(STATE_MAPPING.blind),
 					...device.states
 				}
 			}
@@ -387,7 +387,7 @@ export function parse(deviceStructure, options) {
 			device.function = 'light';
 			device.states = {
 				...device.states,
-				...clone(STATE_MAPPING.light)
+				..._rfdc(STATE_MAPPING.light)
 			}
 		}
 		
@@ -396,7 +396,7 @@ export function parse(deviceStructure, options) {
 			device.function = deviceStructure.root.indexOf('SHDW-') > -1 ? 'door' : 'sensor';
 			device.states = {
 				...device.states,
-				...clone(STATE_MAPPING.sensor)
+				..._rfdc(STATE_MAPPING.sensor)
 			}
 		}
 		

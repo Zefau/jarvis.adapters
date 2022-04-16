@@ -1,7 +1,7 @@
 import { v5 as uuid } from 'uuid';
+import _rfdc from 'rfdc/default';
 
 import { validateStates } from '../adapters';
-const clone = require('rfdc')();
 
 export default 'UniFi';
 export const namespace = 'unifi';
@@ -153,7 +153,7 @@ export function root(objects, options) {
 			// loop states
 			for (const folder in STATE_MAPPING) {
 				for (const stateKey in STATE_MAPPING[folder]) {
-					const s = clone(STATE_MAPPING[folder][stateKey]);
+					const s = _rfdc(STATE_MAPPING[folder][stateKey]);
 					
 					if (stateList.indexOf(namespace + '.' + instance + '.default.' + folder + s.state) > -1) {
 						s.state = '.default.' + folder + s.state;

@@ -1,5 +1,5 @@
 import { validateStates } from '../adapters';
-const clone = require('rfdc')();
+import _rfdc from 'rfdc/default';
 
 export default 'nuki-extended';
 export const namespace = 'nuki-extended';
@@ -160,7 +160,7 @@ export function parse(deviceStructure, options) {
 			const device = {
 				'name': (name && name.val) || deviceStructure.root,
 				'function': 'door',
-				'states': clone(STATE_MAPPING[type.val === 0 ? 'smartlocks' : 'openers'])
+				'states': _rfdc(STATE_MAPPING[type.val === 0 ? 'smartlocks' : 'openers'])
 			}
 			
 			// validate states

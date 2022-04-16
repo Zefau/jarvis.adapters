@@ -1,5 +1,5 @@
-import { validateStates, parseDefault } from '../adapters'
-const clone = require('rfdc')()
+import { validateStates, parseDefault } from '../adapters';
+import _rfdc from 'rfdc/default';
 
 export default 'hue'
 export const namespace = 'hue'
@@ -49,7 +49,7 @@ export function parse(deviceStructure, options) {
 		const device = {
 			'name': deviceStructure.objects[deviceStructure.root].common.name,
 			'function': 'light',
-			'states': clone(STATE_MAPPING.light)
+			'states': _rfdc(STATE_MAPPING.light)
 		}
 		
 		// validate states

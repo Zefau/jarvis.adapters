@@ -1,5 +1,5 @@
-import { validateStates, parseDefault } from '../adapters'
-const clone = require('rfdc')()
+import { validateStates, parseDefault } from '../adapters';
+import _rfdc from 'rfdc/default';
 
 export default 'HomeMatic IP via Access Point'
 export const namespace = 'hmip'
@@ -408,7 +408,7 @@ export function parse(deviceStructure, options) {
 					device.function = func;
 					device.states = {
 						...device.states,
-						...clone(STATE_MAPPING[func][deviceTypeList[func][findDevice]])
+						..._rfdc(STATE_MAPPING[func][deviceTypeList[func][findDevice]])
 					}
 					
 					break;

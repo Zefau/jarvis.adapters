@@ -1,5 +1,5 @@
-import { validateStates, detectFunction, detectStateElements } from '../adapters'
-const clone = require('rfdc')()
+import { validateStates, detectFunction, detectStateElements } from '../adapters';
+import _rfdc from 'rfdc/default';
 
 export default 'hue-extended'
 export const namespace = 'hue-extended'
@@ -58,7 +58,7 @@ export function parse(deviceStructure, options) {
 				...device,
 				'function': 'light',
 				'states': {
-					...clone(STATE_MAPPING.light),
+					..._rfdc(STATE_MAPPING.light),
 					'reachability': '.state.reachable'
 				}
 			}

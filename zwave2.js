@@ -1,5 +1,5 @@
 import { validateStates, parseDefault } from '../adapters';
-const clone = require('rfdc')();
+import _rfdc from 'rfdc/default';
 
 export default 'Z-Wave 2';
 export const namespace = 'zwave2';
@@ -74,7 +74,7 @@ export function parse(deviceStructure, options) {
 			// add states
 			device.states = {
 				...device.states,
-				...clone(STATE_MAPPING[obj.native.type.generic.toLowerCase()])
+				..._rfdc(STATE_MAPPING[obj.native.type.generic.toLowerCase()])
 			}
 			
 			// validate states

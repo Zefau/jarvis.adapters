@@ -1,5 +1,5 @@
 import { validateStates, parseDefault, detectFunction } from '../adapters';
-const clone = require('rfdc')();
+import _rfdc from 'rfdc/default';
 
 export default 'MQTT';
 export const namespace = 'mqtt';
@@ -119,8 +119,8 @@ export function parse(deviceStructure, options) {
 			'name': deviceStructure.objects[deviceStructure.root].common.name,
 			'function': 'other',
 			'states': {
-				...clone(STATE_MAPPING.other),
-				...clone(STATE_MAPPING.light)
+				..._rfdc(STATE_MAPPING.other),
+				..._rfdc(STATE_MAPPING.light)
 			}
 		}
 		

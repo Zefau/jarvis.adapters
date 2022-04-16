@@ -1,5 +1,5 @@
 import { validateStates } from '../adapters'
-const clone = require('rfdc')()
+import _rfdc from 'rfdc/default';
 
 export default 'HomeMatic / HomeMatic IP via CCU'
 export const namespace = 'hm-rpc'
@@ -1789,7 +1789,7 @@ export function parse(deviceStructure, options) {
 					device.function = func;
 					device.states = {
 						...device.states,
-						...clone(STATE_MAPPING[func][deviceTypeList[func][findDevice]])
+						..._rfdc(STATE_MAPPING[func][deviceTypeList[func][findDevice]])
 					}
 					
 					break;
@@ -1800,7 +1800,7 @@ export function parse(deviceStructure, options) {
 			if (deviceStructure.root.indexOf('.CUX') > -1) {
 					device.states = {
 						...device.states,
-						...clone(STATE_MAPPING.CUxD['HM-LC-Sw1PBU-FM'])
+						..._rfdc(STATE_MAPPING.CUxD['HM-LC-Sw1PBU-FM'])
 					}
 			}
 			
