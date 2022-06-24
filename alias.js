@@ -1,5 +1,5 @@
 import { validateStates } from '../adapters';
-import { i18n } from 'src/boot/i18n';
+import { locale } from 'src/boot/i18n';
 
 export default 'Alias Devices';
 export const namespace = 'alias';
@@ -18,7 +18,7 @@ export function parse(deviceStructure, options) {
 		}
 		
 		const device = {
-			'name': obj && obj.common ? (typeof obj.common.name === 'object' ? i18n.t(obj.common.name) : obj.common.name) : '',
+			'name': obj.common.name[locale] || obj.common.name || '',
 			'function': 'other',
 			'states': {
 				'unreach': '.UNREACH',
