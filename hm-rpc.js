@@ -1,4 +1,4 @@
-import { validateStates } from '../adapters'
+import { validateStates, detectStates } from '../adapters'
 import _rfdc from 'rfdc/default';
 
 export default 'HomeMatic / HomeMatic IP via CCU'
@@ -16,7 +16,6 @@ export const BlindLevelActivity = {
  * State Mapping
  */
 const STATE_MAPPING = {
-	
 	// lights
 	"light": {
 		"HmIP-BSM": {
@@ -1055,8 +1054,24 @@ const STATE_MAPPING = {
 			"power": {
 				"state": ".3.STATE"
 			},
-			"meter": {
-				"state": ".6.POWER"
+			"powerCurrent": {
+				"state": ".6.CURRENT",
+				"unit": " mA"
+			},
+			"powerFrequency": {
+				"state": ".6.FREQUENCY"
+			},
+			"powerCounter": {
+				"state": ".6.ENERGY_COUNTER",
+				"unit": " Wh"
+			},
+			"powerMeter": {
+				"state": ".6.POWER",
+				"unit": " W"
+			},
+			"powerVoltage": {
+				"state": ".6.VOLTAGE",
+				"unit": " V"
 			}
 		},
 		"HM-ES-PMSw1-Pl-DN-R1": {
@@ -1206,6 +1221,9 @@ const STATE_MAPPING = {
 			},
 			"brightness": {
 				"state": ".3.BRIGHTNESS"
+			},
+			"illumination": {
+				"state": ".3.ILLUMINATION"
 			}
 		},
 		"HmIP-SMI": {
@@ -1403,6 +1421,32 @@ const STATE_MAPPING = {
 				"state": ".1.SUNSHINEDURATION"
 			}
 		},
+		"HmIP-SWO-PR": {
+			"humidity": {
+				"state": ".1.HUMIDITY"
+			},
+			"wind": {
+				"state": ".1.WIND_SPEED"
+			},
+			"windDirection": {
+				"state": ".1.WIND_DIR"
+			},
+			"temperature": {
+				"state": ".1.ACTUAL_TEMPERATURE"
+			},
+			"illumination": {
+				"state": ".1.ILLUMINATION"
+			},
+			"sunshineDuration": {
+				"state": ".1.SUNSHINEDURATION"
+			},
+			"rain": {
+				"state": ".1.RAINING"
+			},
+			"rainCounter": {
+				"state": ".1.RAIN_COUNTER"
+			}
+		},
 		"HmIP-SWO-PL": {
 			"humidity": {
 				"state": ".1.HUMIDITY"
@@ -1461,6 +1505,19 @@ const STATE_MAPPING = {
 	
 	// other
 	"other": {
+		"HmIP-SCI": {
+			"rssi": {
+				"state": ".0.RSSI_DEVICE"
+			},
+			"power": {
+				"state": ".1.STATE"
+			}
+		},
+		"HmIPW-DRAP": {
+			"temperature": {
+				"state": ".0.ACTUAL_TEMPERATURE"
+			}
+		},
 		"HmIP-FCI1": {
 			"power": {
 				"state": ".1.STATE",
@@ -1494,43 +1551,60 @@ const STATE_MAPPING = {
 			}
 		},
 		"HmIP-PCBS2": {
-			"powerCh3": {
-				"state": ".3.STATE",
-				"action": ".3.STATE"
-			},
-			"powerCh4": {
-				"state": ".4.STATE",
-				"action": ".4.STATE"
-			},
-			"powerCh5": {
-				"state": ".5.STATE",
-				"action": ".5.STATE"
-			},
-			"powerCh6": {
-				"state": ".6.STATE",
-				"action": ".6.STATE"
-			},
-			"powerCh7": {
-				"state": ".7.STATE",
-				"action": ".7.STATE"
-			},
-			"powerCh8": {
-				"state": ".8.STATE",
-				"action": ".8.STATE"
-			},
-			"powerCh9": {
-				"state": ".9.STATE",
-				"action": ".9.STATE"
-			},
-			"powerCh10": {
-				"state": ".10.STATE",
-				"action": ".10.STATE"
+			"powerCh{n}": {
+				"state": ".{n}.STATE",
+				"action": ".{n}.STATE"
 			}
 		}
 	},
 	
 	// switch
 	"switch": {
+		"HmIPW-DRI32": {
+			"power{n}": {
+				"state": ".{n}.STATE",
+				"action": ".{n}.STATE"
+			},
+			"PRESS_LONG{n}": {
+				"state": ".{n}.PRESS_LONG",
+				"action": ".{n}.PRESS_LONG"
+			},
+			"PRESS_SHORT{n}": {
+				"state": ".{n}.PRESS_SHORT",
+				"action": ".{n}.PRESS_SHORT"
+			}
+		},
+		"HmIPW-DRS4": {
+			"power{n}": {
+				"state": ".{n}.STATE",
+				"action": ".{n}.STATE"
+			},
+			"activity{n}": {
+				"state": ".{n}.PROCESS"
+			}
+		},
+		"HmIPW-DRD3": {
+			"level{n}": {
+				"state": ".{n}.LEVEL",
+				"action": ".{n}.LEVEL"
+			},
+			"status{n}": {
+				"state": ".{n}.LEVEL_STATUS",
+				"action": ".{n}.LEVEL_STATUS"
+			},
+			"activity{n}": {
+				"state": ".{n}.PROCESS"
+			}
+		},
+		"HmIPW-DRS8": {
+			"power{n}": {
+				"state": ".{n}.STATE",
+				"action": ".{n}.STATE"
+			},
+			"activity{n}": {
+				"state": ".{n}.PROCESS"
+			}
+		},
 		"HmIP-DRSI1": {
 			"power": {
 				"state": ".2.STATE",
@@ -1673,69 +1747,9 @@ const STATE_MAPPING = {
 	// CUxD
 	"CUxD": {
 		"HM-LC-Sw1PBU-FM": {
-			"powerCh1": {
-				"state": ".1.STATE",
-				"action": ".1.STATE"
-			},
-			"powerCh2": {
-				"state": ".2.STATE",
-				"action": ".2.STATE"
-			},
-			"powerCh3": {
-				"state": ".3.STATE",
-				"action": ".3.STATE"
-			},
-			"powerCh4": {
-				"state": ".4.STATE",
-				"action": ".4.STATE"
-			},
-			"powerCh5": {
-				"state": ".5.STATE",
-				"action": ".5.STATE"
-			},
-			"powerCh6": {
-				"state": ".6.STATE",
-				"action": ".6.STATE"
-			},
-			"powerCh7": {
-				"state": ".7.STATE",
-				"action": ".7.STATE"
-			},
-			"powerCh8": {
-				"state": ".8.STATE",
-				"action": ".8.STATE"
-			},
-			"powerCh9": {
-				"state": ".9.STATE",
-				"action": ".9.STATE"
-			},
-			"powerCh10": {
-				"state": ".10.STATE",
-				"action": ".10.STATE"
-			},
-			"powerCh11": {
-				"state": ".11.STATE",
-				"action": ".11.STATE"
-			},
-			"powerCh12": {
-				"state": ".12.STATE",
-				"action": ".12.STATE"
-			},
-			"powerCh13": {
-				"state": ".13.STATE",
-				"action": ".13.STATE"
-			},
-			"powerCh14": {
-				"state": ".14.STATE",
-				"action": ".14.STATE"
-			},
-			"powerCh15": {
-				"state": ".15.STATE",
-				"action": ".15.STATE"
-			},
-			"powerCh16": {
-				"state": ".16.STATE",
-				"action": ".16.STATE"
+			"powerCh{n}": {
+				"state": ".{n}.STATE",
+				"action": ".{n}.STATE"
 			}
 		}
 	}
@@ -1776,20 +1790,23 @@ export function parse(deviceStructure, options) {
 			const deviceTypeList = {}
 			const deviceTypeListLowerCase = {}
 			
-			let findDevice = -1;
+			let findHmIP = -1;
+			let findHmIPW = -1;
+			
 			const deviceType = obj.native.TYPE.toLowerCase();
 			for (const func in STATE_MAPPING) {
 				deviceTypeList[func] = deviceTypeList[func] || Object.keys(STATE_MAPPING[func]);
-				deviceTypeListLowerCase[func] = deviceTypeListLowerCase[func] || deviceTypeList[func].map(key => key.toLowerCase());
+				deviceTypeListLowerCase[func] = deviceTypeListLowerCase[func] || deviceTypeList[func].map(key => key.toLowerCase().replace('hmip-', '').replace('hmipw-', '').replace('hm-', ''));
 				
 				// search device
-				findDevice = deviceTypeListLowerCase[func].indexOf(deviceType);
+				findHmIP = deviceTypeListLowerCase[func].indexOf(deviceType.replace('hmipw-', '').replace('hmip-', '').replace('hm-', ''));
+				findHmIPW = deviceTypeListLowerCase[func].indexOf(deviceType.replace('hmipw-', '').replace('hmip-', '').replace('hm-', ''));
 				
-				if (findDevice > -1) {
+				if (findHmIP !== -1 || findHmIPW !== -1) {
 					device.function = func;
 					device.states = {
 						...device.states,
-						..._rfdc(STATE_MAPPING[func][deviceTypeList[func][findDevice]])
+						...detectStates(_rfdc(STATE_MAPPING[func][deviceTypeList[func][findHmIP !== -1 ? findHmIP : findHmIPW]]), deviceStructure)
 					}
 					
 					break;
@@ -1808,7 +1825,7 @@ export function parse(deviceStructure, options) {
 			device.states = validateStates(device.states, deviceStructure);
 			
 			// nullify device if no states (except unreach / lowBattery) are found
-			if (findDevice === -1) {
+			if (findHmIP === -1 && findHmIPW === -1) {
 				device.states = {}
 			}
 		}
