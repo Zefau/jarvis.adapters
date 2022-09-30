@@ -87,6 +87,22 @@ const STATE_MAPPING = {
 				"action": ".4.LEVEL"
 			}
 		},
+		"HmIP-PDT": {
+			"level": {
+				"state": ".2.LEVEL",
+				"action": ".3.LEVEL"
+			},
+			"timerOff": {
+				"state": ".3.ON_TIME",
+				"action": ".3.ON_TIME",
+				"unit": " s"
+			},
+			"timerOn": {
+				"state": ".3.RAMP_TIME",
+				"action": ".3.RAMP_TIME",
+				"unit": " s"
+			}
+		},
 		"HM-LC-Dim1T-FM": {
 			"level": {
 				"state": ".1.LEVEL",
@@ -1023,19 +1039,21 @@ const STATE_MAPPING = {
 	"socket": {
 		"HmIP-FSM": {
 			"power": {
-				"state": ".2.STATE",
+				"state": ".1.STATE",
 				"action": ".2.STATE"
 			},
 			"timerOff": {
 				"state": ".2.ON_TIME",
-				"action": ".2.ON_TIME"
+				"action": ".2.ON_TIME",
+				"unit": " s"
 			},
 			"powerCurrent": {
 				"state": ".5.CURRENT",
 				"unit": " mA"
 			},
 			"powerFrequency": {
-				"state": ".5.FREQUENCY"
+				"state": ".5.FREQUENCY",
+				"unit": " Hz"
 			},
 			"powerCounter": {
 				"state": ".5.ENERGY_COUNTER",
@@ -1043,7 +1061,38 @@ const STATE_MAPPING = {
 			},
 			"powerMeter": {
 				"state": ".5.POWER",
-				"unit": " W"
+				"unit": " Wh"
+			},
+			"powerVoltage": {
+				"state": ".5.VOLTAGE",
+				"unit": " V"
+			}
+		},
+		"HmIP-FSM16": {
+			"power": {
+				"state": ".1.STATE",
+				"action": ".2.STATE"
+			},
+			"timerOff": {
+				"state": ".2.ON_TIME",
+				"action": ".2.ON_TIME",
+				"unit": " s"
+			},
+			"powerCurrent": {
+				"state": ".5.CURRENT",
+				"unit": " mA"
+			},
+			"powerFrequency": {
+				"state": ".5.FREQUENCY",
+				"unit": " Hz"
+			},
+			"powerCounter": {
+				"state": ".5.ENERGY_COUNTER",
+				"unit": " Wh"
+			},
+			"powerMeter": {
+				"state": ".5.POWER",
+				"unit": " Wh"
 			},
 			"powerVoltage": {
 				"state": ".5.VOLTAGE",
