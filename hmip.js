@@ -162,6 +162,34 @@ const STATE_MAPPING = {
 				"action": ".channels.1.stop",
 				"actionElement": "IconButtonAction"
 			}
+		},
+		"HmIP-FROLL": {
+			"level": {
+				"state": ".channels.1.shutterLevel",
+				"action": ".channels.1.shutterLevel",
+				"actionElement": "BlindLevelAction",
+				"BlindLevelActionConfig": {
+					"step": "0,1"
+				},
+				"properties": {
+					"min": "1",
+					"max": "0"
+				},
+				"icon": {
+					"default": "window-shutter-open",
+					"<0.2": "window-shutter-open",
+					">=0.8": "window-shutter"
+				},
+				"bodyElement": "LevelBody",
+				"showState": false
+			},
+			"activity": {
+				"state": ".channels.1.processing"
+			},
+			"stop": {
+				"action": ".channels.1.stop",
+				"actionElement": "IconButtonAction"
+			}
 		}
 /*,
 		"hm-lc-bl1-fm": {
