@@ -4,7 +4,7 @@ import _rfdc from 'rfdc/default';
 export default 'MQTT';
 export const namespace = 'mqtt';
 
-export const deviceObjectType = 'channel';
+export const deviceObjectType = 'folder';
 export const devicePattern = '((?!info).)*';
 
 /*
