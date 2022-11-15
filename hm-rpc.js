@@ -428,6 +428,60 @@ const STATE_MAPPING = {
 				"action": ".1.PARTY_MODE"
 			}
 		},
+		"HmIP-eTRV-C": {
+			"temperature": {
+				"state": ".1.ACTUAL_TEMPERATURE"
+			},
+			"setTemperature": {
+				"state": ".1.SET_POINT_TEMPERATURE",
+				"action": ".1.SET_POINT_TEMPERATURE"
+			},
+			"frost": {
+				"state": ".1.FROST_PROTECTION"
+			},
+			"boost": {
+				"state": ".1.BOOST_MODE",
+				"action": ".1.BOOST_MODE"
+			},
+			"boostTime": {
+				"state": ".1.BOOST_TIME",
+				"action": ".1.BOOST_TIME"
+			},
+			"windowState": {
+				"state": ".1.WINDOW_STATE"
+			},
+			"partyMode": {
+				"state": ".1.PARTY_MODE",
+				"action": ".1.PARTY_MODE"
+			}
+		},
+		"HmIP-eTRV-C-2": {
+			"temperature": {
+				"state": ".1.ACTUAL_TEMPERATURE"
+			},
+			"setTemperature": {
+				"state": ".1.SET_POINT_TEMPERATURE",
+				"action": ".1.SET_POINT_TEMPERATURE"
+			},
+			"frost": {
+				"state": ".1.FROST_PROTECTION"
+			},
+			"boost": {
+				"state": ".1.BOOST_MODE",
+				"action": ".1.BOOST_MODE"
+			},
+			"boostTime": {
+				"state": ".1.BOOST_TIME",
+				"action": ".1.BOOST_TIME"
+			},
+			"windowState": {
+				"state": ".1.WINDOW_STATE"
+			},
+			"partyMode": {
+				"state": ".1.PARTY_MODE",
+				"action": ".1.PARTY_MODE"
+			}
+		},
 		"HmIP-eTRV": {
 			"temperature": {
 				"state": ".1.ACTUAL_TEMPERATURE"
