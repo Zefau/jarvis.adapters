@@ -115,8 +115,10 @@ const STATE_MAPPING = {
  */
 export function parse(deviceStructure, options) {
 	return new Promise(resolve => {
+		const obj = deviceStructure.objects[deviceStructure.root] || {};
+		
 		let device = {
-			'name': deviceStructure.objects[deviceStructure.root].common.name,
+			'name': (obj.common && obj.common.name) || obj._id || 'Unknown MQTT Device Name',
 			'function': 'other',
 			'states': {
 				..._rfdc(STATE_MAPPING.other),
