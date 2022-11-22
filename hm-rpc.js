@@ -103,6 +103,144 @@ const STATE_MAPPING = {
 				"unit": " s"
 			}
 		},
+		"HB-RC-2-PBU-LED": { // 2-fach Wandtaster, ähnlich dem HmIP-BSL, mit RGB LED Beleuchtung, https://github.com/Zefau/ioBroker.jarvis/issues/1612#issuecomment-1322305037
+			"brightnessCh1": {
+				"state": ".4.ACT_BRIGHTNESS",
+				"action": ".4.ACT_BRIGHTNESS"
+			},
+			"colorCh1": {
+				"state": ".4.COLOR",
+				"action": ".4.COLOR"
+			},
+			"levelCh1": {
+				"state": ".3.LEVEL",
+				"action": ".3.LEVEL"
+			},
+			"timerOffCh1": {
+				"state": ".3.ON_TIME",
+				"action": ".3.ON_TIME"
+			},
+			"timerOnCh1": {
+				"state": ".3.RAMP_TIME",
+				"action": ".3.RAMP_TIME"
+			},
+			"brightnessCh2": {
+				"state": ".6.ACT_BRIGHTNESS",
+				"action": ".6.ACT_BRIGHTNESS"
+			},
+			"colorCh2": {
+				"state": ".6.COLOR",
+				"action": ".6.COLOR"
+			},
+			"levelCh2": {
+				"state": ".5.LEVEL",
+				"action": ".5.LEVEL"
+			},
+			"timerOffCh2": {
+				"state": ".5.ON_TIME",
+				"action": ".5.ON_TIME"
+			},
+			"timerOnCh2": {
+				"state": ".5.RAMP_TIME",
+				"action": ".5.RAMP_TIME"
+			}
+		},
+		"HB-RC-6-PBU-LED": { // 6fach (Wand)Taster mit RGB Status-LEDs, https://github.com/Zefau/ioBroker.jarvis/issues/1612#issuecomment-1322305037
+			"powerCh1": {
+				"state": ".7.STATE",
+				"action": ".7.STATE"
+			},
+			"timerCh1": {
+				"state": ".7.ON_TIME",
+				"action": ".7.ON_TIME"
+			},
+			"powerCh2": {
+				"state": ".8.STATE",
+				"action": ".8.STATE"
+			},
+			"timerCh2": {
+				"state": ".8.ON_TIME",
+				"action": ".8.ON_TIME"
+			},
+			"powerCh3": {
+				"state": ".9.STATE",
+				"action": ".9.STATE"
+			},
+			"timerCh3": {
+				"state": ".9.ON_TIME",
+				"action": ".9.ON_TIME"
+			},
+			"powerCh4": {
+				"state": ".10.STATE",
+				"action": ".10.STATE"
+			},
+			"timerCh4": {
+				"state": ".10.ON_TIME",
+				"action": ".10.ON_TIME"
+			},
+			"powerCh5": {
+				"state": ".11.STATE",
+				"action": ".11.STATE"
+			},
+			"timerCh5": {
+				"state": ".11.ON_TIME",
+				"action": ".11.ON_TIME"
+			},
+			"powerCh6": {
+				"state": ".12.STATE",
+				"action": ".12.STATE"
+			},
+			"timerCh6": {
+				"state": ".12.ON_TIME",
+				"action": ".12.ON_TIME"
+			}
+		},
+		"HB-UNI-RGB-LED-CTRL": { // RGB Controller für adressierbare RGB LEDs, https://github.com/Zefau/ioBroker.jarvis/issues/1612#issuecomment-1322305037
+			"level": {
+				"state": ".1.LEVEL",
+				"action": ".1.LEVEL"
+			},
+			"brightnessCh1": {
+				"state": ".2.ACT_BRIGHTNESS",
+				"action": ".2.ACT_BRIGHTNESS"
+			},
+			"colorCh1": {
+				"state": ".2.COLOR",
+				"action": ".2.COLOR"
+			},
+			"hsvCh1": {
+				"state": ".2.ACT_HSV_COLOR_VALUE",
+				"action": ".2.ACT_HSV_COLOR_VALUE"
+			},
+			"timerOffCh1": {
+				"state": ".2.ON_TIME",
+				"action": ".2.ON_TIME"
+			},
+			"timerOnCh1": {
+				"state": ".2.RAMP_TIME",
+				"action": ".2.RAMP_TIME"
+			},
+			"brightnessCh2": {
+				"state": ".3.ACT_BRIGHTNESS",
+				"action": ".3.ACT_BRIGHTNESS"
+			},
+			"colorCh2": {
+				"state": ".3.COLOR",
+				"action": ".3.COLOR"
+			},
+			"hsvCh2": {
+				"state": ".3.ACT_HSV_COLOR_VALUE",
+				"action": ".3.ACT_HSV_COLOR_VALUE"
+			},
+			"timerOffCh2": {
+				"state": ".3.ON_TIME",
+				"action": ".3.ON_TIME"
+			},
+			"timerOnCh2": {
+				"state": ".3.RAMP_TIME",
+				"action": ".3.RAMP_TIME"
+			}
+		},
 		"HM-LC-Dim1T-FM": {
 			"level": {
 				"state": ".1.LEVEL",
@@ -1663,13 +1801,77 @@ const STATE_MAPPING = {
 				"state": ".{n}.STATE",
 				"action": ".{n}.STATE"
 			}
+		},
+		"HB-UNI-Sen-CAP-MOIST-T": { // 6xFeuchte + 1x Temp Sensor, https://github.com/Zefau/ioBroker.jarvis/issues/1612#issuecomment-1322305037
+			"temperature": {
+				"state": ".1.TEMPERATURE"
+			},
+			"humidityCh{n}": {
+				"state": ".{n}.HUMIDITY"
+			}
+		},
+		"HB-UNI-Sen-TEMP-DS18B20": { // 8-fach Temp-Sensor, https://github.com/Zefau/ioBroker.jarvis/issues/1612#issuecomment-1322305037
+			"temperatureCh{n}": {
+				"state": ".{n}.TEMPERATURE"
+			}
+		},
+		"HB-UNI-Sen-DUMMY-BEACON-V2": { // 16 Dummy Geräte, https://github.com/Zefau/ioBroker.jarvis/issues/1612#issuecomment-1322305037
+			"powerCh{n}": {
+				"state": ".{n}.STATE"
+			}
+		},
+		"HB-UNI-Sen-LEV-US": { // Ultraschall Sensor Regentank, https://github.com/Zefau/ioBroker.jarvis/issues/1612#issuecomment-1322305037
+			"batteryVoltage": {
+				"state": ".1.BATTERY_VOLTAGE"
+			},
+			"fillingHeight": {
+				"state": ".1.FILLING_HEIGHT"
+			},
+			"fillingLevel": {
+				"state": ".1.FILLING_LEVEL"
+			},
+			"fillingLiter": {
+				"state": ".1.FILLING_LITER"
+			}
+		},
+		"HB-UNI-Sen-RFID-RC": { // RFID Leser/Taster (8 Chips), https://github.com/Zefau/ioBroker.jarvis/issues/1612#issuecomment-1322305037
+			"powerCh{n}": {
+				"state": ".{n}.STATE"
+			},
+			"rfidCh{n}": {
+				"state": ".{n}.RFID_CHIPID"
+			}
+		},
+		"HB-UNI-Sen-VOLT": { // 2-fach DC Spannungsmessung, https://github.com/Zefau/ioBroker.jarvis/issues/1612#issuecomment-1322305037
+			"voltageCh{n}": {
+				"state": ".{n}.HB_VOLTAGE"
+			}
 		}
 	},
 	
 	// switch
 	"switch": {
+		"HB-UNI-SenAct-4-4-RC": { // Universal 4fach-Aktor und 4fach-Sender (Taster), https://github.com/Zefau/ioBroker.jarvis/issues/1612#issuecomment-1322305037
+			"powerCh{n}": {
+				"state": ".{n}.STATE",
+				"action": ".{n}.STATE"
+			},
+			"timerOffCh{n}": {
+				"state": ".{n}.ON_TIME",
+				"action": ".{n}.ON_TIME"
+			}
+		},
+		"HB-UNI-SenAct-4-4-SC": { // Universal 4fach-Aktor und 4fach-Sender (Schliesser), https://github.com/Zefau/ioBroker.jarvis/issues/1612#issuecomment-1322305037
+			"powerCh{n}": {
+				"state": ".{n}.STATE",
+				"action": ".{n}.STATE"
+			},
+			"lowBatteryCh{n}": {
+				"state": ".{n}.LOW_BAT"
+			}
+		},
 		"HmIPW-DRI32": {
-			"power{n}": {
+			"powerCh{n}": {
 				"state": ".{n}.STATE",
 				"action": ".{n}.STATE"
 			},
@@ -1683,33 +1885,33 @@ const STATE_MAPPING = {
 			}
 		},
 		"HmIPW-DRS4": {
-			"power{n}": {
+			"powerCh{n}": {
 				"state": ".{n}.STATE",
 				"action": ".{n}.STATE"
 			},
-			"activity{n}": {
+			"activityCh{n}": {
 				"state": ".{n}.PROCESS"
 			}
 		},
 		"HmIPW-DRD3": {
-			"level{n}": {
+			"levelCh{n}": {
 				"state": ".{n}.LEVEL",
 				"action": ".{n}.LEVEL"
 			},
-			"status{n}": {
+			"statusCh{n}": {
 				"state": ".{n}.LEVEL_STATUS",
 				"action": ".{n}.LEVEL_STATUS"
 			},
-			"activity{n}": {
+			"activityCh{n}": {
 				"state": ".{n}.PROCESS"
 			}
 		},
 		"HmIPW-DRS8": {
-			"power{n}": {
+			"powerCh{n}": {
 				"state": ".{n}.STATE",
 				"action": ".{n}.STATE"
 			},
-			"activity{n}": {
+			"activityCh{n}": {
 				"state": ".{n}.PROCESS"
 			}
 		},
