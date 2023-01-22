@@ -1320,6 +1320,35 @@ const STATE_MAPPING = {
 				"unit": " V"
 			}
 		},
+		"HmIP-PSM-2": {
+			"temperature":{
+				"state":".0.ACTUAL_TEMPERATURE",
+				"unit":" °C"
+			},
+			"power":{
+				"state":".2.STATE",
+				"action":".3.STATE"
+			},
+			"powerCurrent":{
+				"state":".6.CURRENT",
+				"unit":" mA"
+			},
+			"powerFrequency":{
+				"state":".6.FREQUENCY"
+			},
+			"powerCounter":{
+				"state":".6.ENERGY_COUNTER",
+				"unit":" Wh"
+			},
+			"powerMeter":{
+				"state":".6.POWER",
+				"unit":" W"
+			},
+			"powerVoltage":{
+				"state":".6.VOLTAGE",
+				"unit":" V"
+			}
+		},
 		"HM-ES-PMSw1-Pl-DN-R1": {
 			"power": {
 				"state": ".1.STATE",
