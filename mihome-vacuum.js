@@ -2,7 +2,7 @@ import { v5 as uuid } from 'uuid';
 import _rfdc from 'rfdc/default';
 
 import Connection from 'src/controllers/Connection';
-import { validateStates } from '../adapters';
+import { validateStates, getRoom } from '../adapters';
 
 import { allSettled } from 'src/helpers/utils';
 
@@ -175,6 +175,7 @@ export function root(objects, options) {
 							'id': (state && state.val.toLowerCase().replace(/ /g, '')) + '_' + uuid(namespace + '.' + instance, '4eaf6392-6a70-4802-b343-5ff1a1673f39').substr(0, 5),
 							'name': (state && state.val),
 							'function': 'vacuum',
+							'room': getRoom(deviceStructure),
 							'states': _rfdc(STATE_MAPPING)
 						}
 						

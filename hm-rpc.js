@@ -1,4 +1,4 @@
-import { validateStates, detectStates } from '../adapters'
+import { validateStates, detectStates, getRoom } from '../adapters'
 import _rfdc from 'rfdc/default';
 
 export default 'HomeMatic / HomeMatic IP via CCU'
@@ -566,6 +566,60 @@ const STATE_MAPPING = {
 				"action": ".1.PARTY_MODE"
 			}
 		},
+		"HmIP-eTRV-B1": {
+			"temperature": {
+				"state": ".1.ACTUAL_TEMPERATURE"
+			},
+			"setTemperature": {
+				"state": ".1.SET_POINT_TEMPERATURE",
+				"action": ".1.SET_POINT_TEMPERATURE"
+			},
+			"frost": {
+				"state": ".1.FROST_PROTECTION"
+			},
+			"boost": {
+				"state": ".1.BOOST_MODE",
+				"action": ".1.BOOST_MODE"
+			},
+			"boostTime": {
+				"state": ".1.BOOST_TIME",
+				"action": ".1.BOOST_TIME"
+			},
+			"windowState": {
+				"state": ".1.WINDOW_STATE"
+			},
+			"partyMode": {
+				"state": ".1.PARTY_MODE",
+				"action": ".1.PARTY_MODE"
+			}
+		},
+		"HmIP-eTRV-B-2": {
+			"temperature": {
+				"state": ".1.ACTUAL_TEMPERATURE"
+			},
+			"setTemperature": {
+				"state": ".1.SET_POINT_TEMPERATURE",
+				"action": ".1.SET_POINT_TEMPERATURE"
+			},
+			"frost": {
+				"state": ".1.FROST_PROTECTION"
+			},
+			"boost": {
+				"state": ".1.BOOST_MODE",
+				"action": ".1.BOOST_MODE"
+			},
+			"boostTime": {
+				"state": ".1.BOOST_TIME",
+				"action": ".1.BOOST_TIME"
+			},
+			"windowState": {
+				"state": ".1.WINDOW_STATE"
+			},
+			"partyMode": {
+				"state": ".1.PARTY_MODE",
+				"action": ".1.PARTY_MODE"
+			}
+		},
 		"HmIP-eTRV-C": {
 			"temperature": {
 				"state": ".1.ACTUAL_TEMPERATURE"
@@ -594,6 +648,33 @@ const STATE_MAPPING = {
 			}
 		},
 		"HmIP-eTRV-C-2": {
+			"temperature": {
+				"state": ".1.ACTUAL_TEMPERATURE"
+			},
+			"setTemperature": {
+				"state": ".1.SET_POINT_TEMPERATURE",
+				"action": ".1.SET_POINT_TEMPERATURE"
+			},
+			"frost": {
+				"state": ".1.FROST_PROTECTION"
+			},
+			"boost": {
+				"state": ".1.BOOST_MODE",
+				"action": ".1.BOOST_MODE"
+			},
+			"boostTime": {
+				"state": ".1.BOOST_TIME",
+				"action": ".1.BOOST_TIME"
+			},
+			"windowState": {
+				"state": ".1.WINDOW_STATE"
+			},
+			"partyMode": {
+				"state": ".1.PARTY_MODE",
+				"action": ".1.PARTY_MODE"
+			}
+		},
+		"HmIP-eTRV-E": {
 			"temperature": {
 				"state": ".1.ACTUAL_TEMPERATURE"
 			},
@@ -690,6 +771,41 @@ const STATE_MAPPING = {
 				"action": ".1.VALVE_STATE"
 			}
 		},
+		"HmIP-eTRV-2 I9F": {
+			"temperature": {
+				"state": ".1.ACTUAL_TEMPERATURE"
+			},
+			"setTemperature": {
+				"state": ".1.SET_POINT_TEMPERATURE",
+				"action": ".1.SET_POINT_TEMPERATURE"
+			},
+			"frost": {
+				"state": ".1.FROST_PROTECTION"
+			},
+			"boost": {
+				"state": ".1.BOOST_MODE",
+				"action": ".1.BOOST_MODE"
+			},
+			"boostTime": {
+				"state": ".1.BOOST_TIME",
+				"action": ".1.BOOST_TIME"
+			},
+			"windowState": {
+				"state": ".1.WINDOW_STATE"
+			},
+			"partyMode": {
+				"state": ".1.PARTY_MODE",
+				"action": ".1.PARTY_MODE"
+			},
+			"level": {
+				"state": ".1.LEVEL",
+				"action": ".1.LEVEL"
+			},
+			"valve": {
+				"state": ".1.VALVE_STATE",
+				"action": ".1.VALVE_STATE"
+			}
+		},
 		"HmIP-BWTH": {
 			"temperature": {
 				"state": ".1.ACTUAL_TEMPERATURE"
@@ -722,7 +838,7 @@ const STATE_MAPPING = {
 				"action": ".1.BOOST_MODE"
 			}
 		},
-		"HmIP-WTH-B": {
+		"HmIP-WTH-1": {
 			"temperature": {
 				"state": ".1.ACTUAL_TEMPERATURE"
 			},
@@ -739,6 +855,22 @@ const STATE_MAPPING = {
 			}
 		},
 		"HmIP-WTH-2": {
+			"temperature": {
+				"state": ".1.ACTUAL_TEMPERATURE"
+			},
+			"setTemperature": {
+				"state": ".1.SET_POINT_TEMPERATURE",
+				"action": ".1.SET_POINT_TEMPERATURE"
+			},
+			"humidity": {
+				"state": ".1.HUMIDITY"
+			},
+			"boost": {
+				"state": ".1.BOOST_MODE",
+				"action": ".1.BOOST_MODE"
+			}
+		},
+		"HmIP-WTH-B": {
 			"temperature": {
 				"state": ".1.ACTUAL_TEMPERATURE"
 			},
@@ -993,6 +1125,22 @@ const STATE_MAPPING = {
 				"action": ".4.STOP"
 			}
 		},
+		"HmIP-BROLL-2": {
+			"level": {
+				"state": ".3.LEVEL",
+				"action": ".4.LEVEL"
+			},
+			"level2": {
+				"state": ".3.LEVEL2",
+				"action": ".4.LEVEL2"
+			},
+			"activity": {
+				"state": ".3.ACTIVITY_STATE"
+			},
+			"stop": {
+				"action": ".4.STOP"
+			}
+		},
 		"HM-LC-Bl1-FM": {
 			"level": {
 				"state": ".1.LEVEL",
@@ -1191,6 +1339,11 @@ const STATE_MAPPING = {
 			}
 		},
 		"HmIP-SWDO": {
+			"open": {
+				"state": ".1.STATE"
+			}
+		},
+		"HmIP-SWDO-2": {
 			"open": {
 				"state": ".1.STATE"
 			}
@@ -1780,6 +1933,14 @@ const STATE_MAPPING = {
 	
 	// other
 	"other": {
+		"HmIP-ASIR-B1": {
+			"acoustic": {
+				"state": ".3.ACOUSTIC_ALARM_ACTIVE"
+			},
+			"optical": {
+				"state": ".3.OPTICAL_ALARM_ACTIVE"
+			}
+		},
 		"HmIP-SCI": {
 			"rssi": {
 				"state": ".0.RSSI_DEVICE"
@@ -1880,6 +2041,16 @@ const STATE_MAPPING = {
 	
 	// switch
 	"switch": {
+		"HmIP-FSI16": {
+			"powerCh{n}": {
+				"state": ".{n}.STATE",
+				"action": ".{n}.STATE"
+			},
+			"timerOffCh{n}": {
+				"state": ".{n}.ON_TIME",
+				"action": ".{n}.ON_TIME"
+			}
+		},
 		"HB-UNI-SenAct-4-4-RC": { // Universal 4fach-Aktor und 4fach-Sender (Taster), https://github.com/Zefau/ioBroker.jarvis/issues/1612#issuecomment-1322305037
 			"powerCh{n}": {
 				"state": ".{n}.STATE",
@@ -2109,7 +2280,8 @@ export function parse(deviceStructure, options) {
 		
 		let device = {
 			'name': obj.common.name,
-			'function': 'other'
+			'function': 'other',
+			'room': getRoom(deviceStructure)
 		}
 		
 		if (obj.native) {

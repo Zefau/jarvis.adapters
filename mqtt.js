@@ -1,4 +1,4 @@
-import { validateStates, parseDefault, detectFunction } from '../adapters';
+import { validateStates, parseDefault, detectFunction, getRoom } from '../adapters';
 import _rfdc from 'rfdc/default';
 
 export default 'MQTT';
@@ -120,6 +120,7 @@ export function parse(deviceStructure, options) {
 		let device = {
 			'name': (obj.common && obj.common.name) || obj._id || 'Unknown MQTT Device Name',
 			'function': 'other',
+			'room': getRoom(deviceStructure),
 			'states': {
 				..._rfdc(STATE_MAPPING.other),
 				..._rfdc(STATE_MAPPING.light)

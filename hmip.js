@@ -1,4 +1,4 @@
-import { validateStates, parseDefault } from '../adapters';
+import { validateStates, parseDefault, getRoom } from '../adapters';
 import _rfdc from 'rfdc/default';
 
 export default 'HomeMatic IP via Access Point'
@@ -403,6 +403,7 @@ export function parse(deviceStructure, options) {
 		const device = {
 			'name': deviceStructure.objects[deviceStructure.root].common.name,
 			'function': 'other',
+			'room': getRoom(deviceStructure),
 			'states': {
 				'unreach': {
 					'state': '.channels.0.unreach'

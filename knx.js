@@ -1,5 +1,5 @@
 import { v5 as uuid } from 'uuid'
-import { detectFunction, detectStateElements } from '../adapters'
+import { detectFunction, detectStateElements, getRoom } from '../adapters'
 
 export default 'knx'
 export const namespace = 'knx'
@@ -25,6 +25,7 @@ export function root(objects, options) {
 				'id': obj.common.name.toLowerCase().replace(/ /g, '') + '_' + uuid(objectId, '4eaf6392-6a70-4802-b343-5ff1a1673f39').substr(0, 5),
 				name,
 				'function': 'other',
+				'room': getRoom(deviceStructure),
 				'states': {
 					[obj.native.address]: detectStateElements(objectId, { 'objects': objects })
 				}

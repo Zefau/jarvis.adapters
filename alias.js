@@ -1,4 +1,4 @@
-import { validateStates } from '../adapters';
+import { validateStates, getRoom } from '../adapters';
 import { locale } from 'src/boot/i18n';
 
 export default 'Alias Devices';
@@ -20,6 +20,7 @@ export function parse(deviceStructure, options) {
 		const device = {
 			'name': obj.common.name[locale] || obj.common.name || '',
 			'function': 'other',
+			'room': getRoom(deviceStructure),
 			'states': {
 				'unreach': '.UNREACH',
 				'lowBattery': '.LOWBAT'

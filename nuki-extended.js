@@ -1,4 +1,4 @@
-import { validateStates } from '../adapters';
+import { validateStates, getRoom } from '../adapters';
 import _rfdc from 'rfdc/default';
 
 export default 'nuki-extended';
@@ -160,6 +160,7 @@ export function parse(deviceStructure, options) {
 			const device = {
 				'name': (name && name.val) || deviceStructure.root,
 				'function': 'door',
+				'room': getRoom(deviceStructure),
 				'states': _rfdc(STATE_MAPPING[type.val === 0 ? 'smartlocks' : 'openers'])
 			}
 			

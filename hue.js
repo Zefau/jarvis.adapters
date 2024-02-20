@@ -1,4 +1,4 @@
-import { validateStates, parseDefault } from '../adapters';
+import { validateStates, parseDefault, getRoom } from '../adapters';
 import _rfdc from 'rfdc/default';
 
 export default 'hue'
@@ -49,6 +49,7 @@ export function parse(deviceStructure, options) {
 		const device = {
 			'name': deviceStructure.objects[deviceStructure.root].common.name,
 			'function': 'light',
+			'room': getRoom(deviceStructure),
 			'states': _rfdc(STATE_MAPPING.light)
 		}
 		

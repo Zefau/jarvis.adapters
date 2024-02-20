@@ -1,4 +1,4 @@
-import { validateStates, detectFunction, detectStateElements } from '../adapters';
+import { validateStates, detectFunction, detectStateElements, getRoom } from '../adapters';
 import _rfdc from 'rfdc/default';
 
 export default 'hue-extended'
@@ -57,6 +57,7 @@ export function parse(deviceStructure, options) {
 			device = {
 				...device,
 				'function': 'light',
+				'room': getRoom(deviceStructure),
 				'states': {
 					..._rfdc(STATE_MAPPING.light),
 					'reachability': '.state.reachable'

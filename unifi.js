@@ -1,7 +1,7 @@
 import { v5 as uuid } from 'uuid';
 import _rfdc from 'rfdc/default';
 
-import { validateStates } from '../adapters';
+import { validateStates, getRoom } from '../adapters';
 
 export default 'UniFi';
 export const namespace = 'unifi';
@@ -147,6 +147,7 @@ export function root(objects, options) {
 				'id': (namespace + '.' + instance).toLowerCase().replace(/ /g, '') + '_' + uuid(namespace + '.' + instance, '4eaf6392-6a70-4802-b343-5ff1a1673f39').substr(0, 5),
 				'name': namespace + '.' + instance,
 				'function': 'other',
+				'room': getRoom(deviceStructure),
 				'states': {}
 			}
 			

@@ -1,4 +1,4 @@
-import { validateStates, detectFunction } from '../adapters';
+import { validateStates, detectFunction, getRoom } from '../adapters';
 import _rfdc from 'rfdc/default';
 
 export default 'Shelly';
@@ -312,6 +312,30 @@ const STATE_MAPPING = {
 	}
 }
 
+const buttonType = {
+	'momentary': 'momentary',
+	'toggle': 'toggle',
+	'edge': 'edge',
+	'detached': 'detached',
+	'action': 'action',
+	'cycle': 'cycle',
+	'momentary_on_release': 'momentary_on_release'
+}
+
+const inputMode = {
+	"momentary": "momentary",
+	"follow": "follow",
+	"flip": "flip",
+	"detached": "detached"
+}
+
+const initialState = {
+	"on": "on",
+	"off": "off",
+	"restore_last": "restore_last",
+	"match_input": "match_input"
+}
+
 /**
  *
  *
@@ -323,6 +347,7 @@ export function parse(deviceStructure, options) {
 		let device = {
 			'name': name || deviceStructure.objects[deviceStructure.root].common.name,
 			'function': 'socket',
+			'room': getRoom(deviceStructure),
 			'states': {
 				..._rfdc(STATE_MAPPING.socket),
 				'firmware': {
@@ -330,9 +355,50 @@ export function parse(deviceStructure, options) {
 					'action': '.firmwareupdate',
 					'actionElement': 'IconButtonAction'
 				},
+				'ip': '.hostname',
 				'temperature': '.temperatureC',
 				'version': '.version',
-				'reachability': '.online'
+				'reachability': '.online',
+				'cloudEnabled': '.Cloud.enabled',
+				'apEnabled': '.WiFi.apEnabled',
+				
+				'buttonTypeRelay0': {
+					'state': '.Relay0.ButtonType',
+					'action': '.Relay0.ButtonType',
+					'actionElement': 'DropdownAction',
+					'display': buttonType
+				},
+				'buttonTypeRelay1': {
+					'state': '.Relay1.ButtonType',
+					'action': '.Relay1.ButtonType',
+					'actionElement': 'DropdownAction',
+					'display': buttonType
+				},
+				
+				'initialStateRelay0': {
+					'state': '.Relay0.InitialState',
+					'action': '.Relay0.InitialState',
+					'actionElement': 'DropdownAction',
+					'display': initialState
+				},
+				'initialStateRelay1': {
+					'state': '.Relay1.InitialState',
+					'action': '.Relay1.InitialState',
+					'actionElement': 'DropdownAction',
+					'display': initialState
+				},
+				'inputModeRelay0': {
+					'state': '.Relay0.InputMode',
+					'action': '.Relay0.InputMode',
+					'actionElement': 'DropdownAction',
+					'display': inputMode
+				},
+				'inputModeRelay1': {
+					'state': '.Relay1.InputMode',
+					'action': '.Relay1.InputMode',
+					'actionElement': 'DropdownAction',
+					'display': inputMode
+				}
 			}
 		}
 		
@@ -354,13 +420,25 @@ export function parse(deviceStructure, options) {
 		// Shelly 2
 		else if (deviceStructure.root.indexOf('SHSW-2') > -1) {
 			// Shutter mode
-			if (deviceStructure.states[deviceStructure.root + '.mode'] && deviceStructure.states[deviceStructure.root + '.mode'].val === 'roller') {
+			if ((deviceStructure.states[deviceStructure.root + '.Sys.deviceMode'] && deviceStructure.states[deviceStructure.root + '.Sys.deviceMode'].val === 'roller') || (deviceStructure.states[deviceStructure.root + '.mode'] && deviceStructure.states[deviceStructure.root + '.mode'].val === 'roller')) {
 				delete device.states.power;
+				delete device.states.buttonTypeRelay0;
+				delete device.states.buttonTypeRelay1;
+				delete device.states.initialStaateRelay0;
+				delete device.states.initialStaateRelay1;
+				delete device.states.inputModeRelay0;
+				delete device.states.inputModeRelay1;
 				
 				device.function = 'blind';
 				device.states = {
 					..._rfdc(STATE_MAPPING.blind),
-					...device.states
+					...device.states,
+					'buttonType': {
+						'state': '.Shutter.ButtonType',
+						'action': '.Shutter.ButtonType',
+						'actionElement': 'DropdownAction',
+						'display': buttonType
+					}
 				}
 			}
 			

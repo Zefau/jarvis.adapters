@@ -1,7 +1,7 @@
 import { v5 as uuid } from 'uuid';
 import _rfdc from 'rfdc/default';
 
-import { validateStates } from '../adapters';
+import { validateStates, getRoom } from '../adapters';
 
 export default 'tr-064';
 export const namespace = 'tr-064';
@@ -141,6 +141,7 @@ export function root(objects, options) {
 					'id': (namespace + '.' + instance + '-' + key).toLowerCase().replace(/ /g, '') + '_' + uuid(namespace + '.' + instance, '4eaf6392-6a70-4802-b343-5ff1a1673f39').substr(0, 5),
 					'name': namespace + '.' + instance + ' ' + key,
 					'function': 'other',
+					'room': '',
 					'states': {}
 				}
 				
@@ -154,6 +155,7 @@ export function root(objects, options) {
 						s.action = s.action && ('.' + key + s.action);
 						
 						devices[key + '.' + instance].states[stateKey] = s;
+						devices[key + '.' + instance].room = getRoom(namespace + '.' + instance + '.' + key + s.state);
 					}
 				}
 			}

@@ -1,4 +1,4 @@
-import { validateStates, parseDefault } from '../adapters';
+import { validateStates, parseDefault, getRoom } from '../adapters';
 import _rfdc from 'rfdc/default';
 
 export default 'Z-Wave 2';
@@ -55,6 +55,7 @@ export function parse(deviceStructure, options) {
 		const device = {
 			'name': obj.common.name,
 			'function': 'other',
+			'room': getRoom(deviceStructure),
 			'states': {
 				'reachability': '.alive',
 				'battery': '.Battery.level',
