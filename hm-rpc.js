@@ -593,7 +593,7 @@ const STATE_MAPPING = {
 				"action": ".1.PARTY_MODE"
 			}
 		},
-		"HmIP-eTRV-B-2": {
+		"HmIP-eTRV-B-2 R4M": {
 			"temperature": {
 				"state": ".1.ACTUAL_TEMPERATURE"
 			},
