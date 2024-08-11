@@ -18,6 +18,105 @@ export const BlindLevelActivity = {
 const STATE_MAPPING = {
 	// lights
 	"light": {
+		"HM-LC-Dim1T-DR": {
+			"rampTime": {
+				"state": ".1.RAMP_TIME",
+				"action": ".1.RAMP_TIME"
+			},
+			"rampStop": {
+				"state": ".1.RAMP_STOP",
+				"action": ".1.RAMP_STOP"
+			},
+			"level": {
+				"state": ".1.LEVEL",
+				"action": ".1.LEVEL"
+			},
+			"levelReal": {
+				"state": ".1.LEVEL_REAL",
+				"action": ".1.LEVEL_REAL"
+			},
+			"levelOld": {
+				"state": ".1.OLD_LEVEL",
+				"action": ".1.OLD_LEVEL"
+			}
+			
+		},
+		"HmIP-RGBW": {
+			"activity": {
+				"state": ".1.ACTIVITY_STATE"
+			},
+			"colorTemperature": {
+				"state": ".1.COLOR_TEMPERATURE",
+				"action": ".1.COLOR_TEMPERATURE"
+			},
+			"colorTemperatureStatus": {
+				"state": ".1.COLOR_TEMPERATURE_STATUS"
+			},
+			"dim2WarmState": {
+				"state": ".1.DIM2WARM_STATE"
+			},
+			"durationUnit": {
+				"state": ".1.DURATION_UNIT",
+				"action": ".1.DURATION_UNIT"
+			},
+			"durationValue": {
+				"state": ".1.DURATION_VALUE",
+				"action": ".1.DURATION_VALUE"
+			},
+			"effect": {
+				"state": ".1.EFFECT",
+				"action": ".1.EFFECT"
+			},
+			"hue": {
+				"state": ".1.HUE",
+				"action": ".1.HUE"
+			},
+			"hueStatus": {
+				"state": ".1.HUE_STATUS"
+			},
+			"HumanCentricLightState": {
+				"state": ".1.HUMAN_CENTRIC_LIGHT_STATE"
+			},
+			"level": {
+				"state": ".1.LEVEL",
+				"action": ".1.LEVEL"
+			},
+			"levelStatus": {
+				"state": ".1.LEVEL_STATUS"
+			},
+			"process": {
+				"state": ".1.PROCESS"
+			},
+			"rampTimeToOffUnit": {
+				"state": ".1.RAMP_TIME_TO_OFF_UNIT",
+				"action": ".1.RAMP_TIME_TO_OFF_UNIT"
+			},
+			"rampTimeToOffValue": {
+				"state": ".1.RAMP_TIME_TO_OFF_VALUE",
+				"action": ".1.RAMP_TIME_TO_OFF_VALUE"
+			},
+			"rampTimeUnit": {
+				"state": ".1.RAMP_TIME_UNIT",
+				"action": ".1.RAMP_TIME_UNIT"
+			},
+			"rampTimeValue": {
+				"state": ".1.RAMP_TIME_VALUE",
+				"action": ".1.RAMP_TIME_VALUE"
+			},
+			"saturation": {
+				"state": ".1.SATURATION",
+				"action": ".1.SATURATION"
+			},
+			"saturationStatus": {
+				"state": ".1.SATURATION_STATUS"
+			},
+			"section": {
+				"state": ".1.SECTION"
+			},
+			"sectionStatus": {
+				"state": ".1.SECTION_STATUS"
+			}
+		},
 		"HmIP-BSM": {
 			"power": {
 				"state": ".4.STATE",
@@ -38,9 +137,28 @@ const STATE_MAPPING = {
 				"state": ".4.STATE",
 				"action": ".4.STATE"
 			},
+			"durationUnitTop": {
+				"state": ".8.DURATION_UNIT",
+				"action": ".8.DURATION_UNIT"
+			},
+			"durationValueTop": {
+				"state": ".8.DURATION_VALUE",
+				"action": ".8.DURATION_VALUE"
+			},
+			"rampTimeUnitTop": {
+				"state": ".8.RAMP_TIME_UNIT",
+				"action": ".8.RAMP_TIME_UNIT"
+			},
+			"rampTimeValueTop": {
+				"state": ".8.RAMP_TIME_VALUE",
+				"action": ".8.RAMP_TIME_VALUE"
+			},
 			"levelTop": {
 				"state": ".8.LEVEL",
 				"action": ".8.LEVEL"
+			},
+			"levelStatusTop": {
+				"state": ".8.LEVEL_STATUS"
 			},
 			"colorTop": {
 				"state": ".8.COLOR",
@@ -56,9 +174,31 @@ const STATE_MAPPING = {
 					"7": "WHITE"
 				}
 			},
+			"colorStatusTop": {
+				"state": ".8.COLOR_STATUS"
+			},
+			"durationUnitBottom": {
+				"state": ".12.DURATION_UNIT",
+				"action": ".12.DURATION_UNIT"
+			},
+			"durationValueBottom": {
+				"state": ".12.DURATION_VALUE",
+				"action": ".12.DURATION_VALUE"
+			},
+			"rampTimeUnitBottom": {
+				"state": ".12.RAMP_TIME_UNIT",
+				"action": ".12.RAMP_TIME_UNIT"
+			},
+			"rampTimeValueBottom": {
+				"state": ".12.RAMP_TIME_VALUE",
+				"action": ".12.RAMP_TIME_VALUE"
+			},
 			"levelBottom": {
 				"state": ".12.LEVEL",
 				"action": ".12.LEVEL"
+			},
+			"levelStatusBottom": {
+				"state": ".12.LEVEL_STATUS"
 			},
 			"colorBottom": {
 				"state": ".12.COLOR",
@@ -73,6 +213,9 @@ const STATE_MAPPING = {
 					"6": "YELLOW",
 					"7": "WHITE"
 				}
+			},
+			"colorStatusTop": {
+				"state": ".12.COLOR_STATUS"
 			}
 		},
 		"HmIP-BRC2": {
@@ -886,6 +1029,22 @@ const STATE_MAPPING = {
 				"action": ".1.BOOST_MODE"
 			}
 		},
+		"HmIP-WTH-B-2": {
+			"temperature": {
+				"state": ".1.ACTUAL_TEMPERATURE"
+			},
+			"setTemperature": {
+				"state": ".1.SET_POINT_TEMPERATURE",
+				"action": ".1.SET_POINT_TEMPERATURE"
+			},
+			"humidity": {
+				"state": ".1.HUMIDITY"
+			},
+			"boost": {
+				"state": ".1.BOOST_MODE",
+				"action": ".1.BOOST_MODE"
+			}
+		},
 		"HM-CC-VD": {
 			"valve": {
 				"state": ".1.VALVE_STATE",
@@ -1081,6 +1240,36 @@ const STATE_MAPPING = {
 
 	// blinds
 	"blind": {
+		"HB-LC-Bl1PBU-FM": {
+			"level": {
+				"state": ".1.LEVEL",
+				"action": ".1.LEVEL"
+			},
+			"PRESS_CONT1": {
+				"state": ".2.PRESS_CONT",
+				"action": ".2.PRESS_CONT"
+			},
+			"PRESS_LONG1": {
+				"state": ".2.PRESS_LONG",
+				"action": ".2.PRESS_LONG"
+			},
+			"PRESS_SHORT1": {
+				"state": ".2.PRESS_SHORT",
+				"action": ".2.PRESS_SHORT"
+			},
+			"PRESS_CONT2": {
+				"state": ".3.PRESS_CONT",
+				"action": ".3.PRESS_CONT"
+			},
+			"PRESS_LONG2": {
+				"state": ".3.PRESS_LONG",
+				"action": ".3.PRESS_LONG"
+			},
+			"PRESS_SHORT2": {
+				"state": ".3.PRESS_SHORT",
+				"action": ".3.PRESS_SHORT"
+			}
+		},
 		"HmIP-BBL": {
 			"level": {
 				"state": ".3.LEVEL",
@@ -1449,6 +1638,11 @@ const STATE_MAPPING = {
 				"state": ".3.STATE"
 			}
 		},
+		"HmIP-PS-2": {
+			"power": {
+				"state": ".3.STATE"
+			}
+		},
 		"HmIP-PSM": {
 			"power": {
 				"state": ".3.STATE"
@@ -1652,6 +1846,33 @@ const STATE_MAPPING = {
 			},
 			"illumination": {
 				"state": ".3.ILLUMINATION"
+			}
+		},
+		"HmIP-SMI55-2": {
+			"motion": {
+				"state": ".3.MOTION"
+			},
+			"illumination": {
+				"state": ".3.ILLUMINATION"
+			},
+			"illuminationCurrent": {
+				"state": ".3.CURRENT_ILLUMINATION"
+			},
+			"PRESS_LONG{n}": {
+				"state": ".{n}.PRESS_LONG",
+				"action": ".{n}.PRESS_LONG"
+			},
+			"PRESS_LONG_RELEASE{n}": {
+				"state": ".{n}.PRESS_LONG_RELEASE",
+				"action": ".{n}.PRESS_LONG_RELEASE"
+			},
+			"PRESS_LONG_START{n}": {
+				"state": ".{n}.PRESS_LONG_START",
+				"action": ".{n}.PRESS_LONG_START"
+			},
+			"PRESS_SHORT{n}": {
+				"state": ".{n}.PRESS_SHORT",
+				"action": ".{n}.PRESS_SHORT"
 			}
 		},
 		"HmIP-SMI": {
@@ -1933,6 +2154,20 @@ const STATE_MAPPING = {
 	
 	// other
 	"other": {
+		"HB-OU-MP3-LED": {
+			"state": {
+				"state": ".1.STATE"
+			},
+			"submit": {
+				"state": ".1.SUBMIT"
+			},
+			"state2": {
+				"state": ".2.STATE"
+			},
+			"submit2": {
+				"state": ".2.SUBMIT"
+			}
+		},
 		"HmIP-ASIR-B1": {
 			"acoustic": {
 				"state": ".3.ACOUSTIC_ALARM_ACTIVE"
@@ -2041,6 +2276,58 @@ const STATE_MAPPING = {
 	
 	// switch
 	"switch": {
+		"HmIP-BS2": {
+			"powerCh1": {
+				"state": ".4.STATE",
+				"action": ".4.STATE"
+			},
+			"powerCh2": {
+				"state": ".8.STATE",
+				"action": ".8.STATE"
+			}
+		},
+		"HmIP-WRC6": {
+			"PRESS_LONG{n}": {
+				"state": ".{n}.PRESS_LONG",
+				"action": ".{n}.PRESS_LONG"
+			},
+			"PRESS_LONG_RELEASE{n}": {
+				"state": ".{n}.PRESS_LONG_RELEASE",
+				"action": ".{n}.PRESS_LONG_RELEASE"
+			},
+			"PRESS_LONG_START{n}": {
+				"state": ".{n}.PRESS_LONG_START",
+				"action": ".{n}.PRESS_LONG_START"
+			},
+			"PRESS_SHORT{n}": {
+				"state": ".{n}.PRESS_SHORT",
+				"action": ".{n}.PRESS_SHORT"
+			}
+		},
+		"HmIP-RCV-50": {
+			"PRESS_LONG{n}": {
+				"state": ".{n}.PRESS_LONG",
+				"action": ".{n}.PRESS_LONG"
+			},
+			"PRESS_SHORT{n}": {
+				"state": ".{n}.PRESS_SHORT",
+				"action": ".{n}.PRESS_SHORT"
+			}
+		},
+		"HM-Dis-EP-WM55": {
+			"PRESS_CONT{n}": {
+				"state": ".{n}.PRESS_CONT",
+				"action": ".{n}.PRESS_CONT"
+			},
+			"PRESS_LONG{n}": {
+				"state": ".{n}.PRESS_LONG",
+				"action": ".{n}.PRESS_LONG"
+			},
+			"PRESS_SHORT{n}": {
+				"state": ".{n}.PRESS_SHORT",
+				"action": ".{n}.PRESS_SHORT"
+			}
+		},
 		"HmIP-FSI16": {
 			"powerCh{n}": {
 				"state": ".{n}.STATE",
@@ -2183,6 +2470,27 @@ const STATE_MAPPING = {
 			"power": {
 				"state": ".1.STATE",
 				"action": ".1.STATE"
+			}
+		},
+		"HM-PB-2-WM": {
+			"lowBatteryCh1": {
+				"state": ".1.LOWBAT"
+			},
+			"PRESS_LONG_BOTTOM": {
+				"state": ".1.PRESS_LONG",
+				"action": ".1.PRESS_LONG"
+			},
+			"PRESS_SHORT_BOTTOM": {
+				"state": ".1.PRESS_SHORT",
+				"action": ".1.PRESS_SHORT"
+			},
+			"PRESS_LONG_TOP": {
+				"state": ".2.PRESS_LONG",
+				"action": ".2.PRESS_LONG"
+			},
+			"PRESS_SHORT_TOP": {
+				"state": ".2.PRESS_SHORT",
+				"action": ".2.PRESS_SHORT"
 			}
 		},
 		"HM-PB-2-WM55": {
