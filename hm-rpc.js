@@ -2276,6 +2276,32 @@ const STATE_MAPPING = {
 	
 	// switch
 	"switch": {
+		"HM-PB-2-FM": {
+			"PRESS_CONT1": {
+				"state": ".1.PRESS_CONT",
+				"action": ".1.PRESS_CONT"
+			},
+			"PRESS_LONG1": {
+				"state": ".1.PRESS_LONG",
+				"action": ".1.PRESS_LONG"
+			},
+			"PRESS_SHORT1": {
+				"state": ".1.PRESS_SHORT",
+				"action": ".1.PRESS_SHORT"
+			},
+			"PRESS_CONT2": {
+				"state": ".2.PRESS_CONT",
+				"action": ".2.PRESS_CONT"
+			},
+			"PRESS_LONG2": {
+				"state": ".2.PRESS_LONG",
+				"action": ".2.PRESS_LONG"
+			},
+			"PRESS_SHORT2": {
+				"state": ".2.PRESS_SHORT",
+				"action": ".2.PRESS_SHORT"
+			}
+		},
 		"HmIP-BS2": {
 			"powerCh1": {
 				"state": ".4.STATE",
