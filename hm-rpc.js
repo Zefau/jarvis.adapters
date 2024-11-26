@@ -18,6 +18,16 @@ export const BlindLevelActivity = {
 const STATE_MAPPING = {
 	// lights
 	"light": {
+		"HmIP-FDT": {
+			"rampTime{n}": {
+				"state": ".{n}.RAMP_TIME",
+				"action": ".{n}.RAMP_TIME"
+			},
+			"level{n}": {
+				"state": ".{n}.LEVEL",
+				"action": ".{n}.LEVEL"
+			}
+		},
 		"HM-LC-Dim1T-DR": {
 			"rampTime": {
 				"state": ".1.RAMP_TIME",
@@ -622,6 +632,12 @@ const STATE_MAPPING = {
 
 	// heatings
 	"heating": {
+		"HmIP-FAL230-C6": {
+			"STATE{n}": {
+				"state": ".{n}.STATE",
+				"action": ".{n}.STATE"
+			}
+		},
 		"HmIP-STH": {
 			"temperature": {
 				"state": ".1.ACTUAL_TEMPERATURE"
