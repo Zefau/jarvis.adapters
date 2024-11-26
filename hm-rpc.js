@@ -18,6 +18,16 @@ export const BlindLevelActivity = {
 const STATE_MAPPING = {
 	// lights
 	"light": {
+		"HmIP-FDT": {
+			"rampTime{n}": {
+				"state": ".{n}.RAMP_TIME",
+				"action": ".{n}.RAMP_TIME"
+			},
+			"level{n}": {
+				"state": ".{n}.LEVEL",
+				"action": ".{n}.LEVEL"
+			}
+		},
 		"HM-LC-Dim1T-DR": {
 			"rampTime": {
 				"state": ".1.RAMP_TIME",
@@ -622,6 +632,12 @@ const STATE_MAPPING = {
 
 	// heatings
 	"heating": {
+		"HmIP-FAL230-C6": {
+			"STATE{n}": {
+				"state": ".{n}.STATE",
+				"action": ".{n}.STATE"
+			}
+		},
 		"HmIP-STH": {
 			"temperature": {
 				"state": ".1.ACTUAL_TEMPERATURE"
@@ -1832,11 +1848,45 @@ const STATE_MAPPING = {
 				"state": ".1.GAS_POWER",
 				"unit": " m3"
 			}
+		},
+		"HM-ES-TX-WM": {
+			"ENERGY_POWER": {
+				"ENERGY_POWER": ".1.ENERGY_POWER"
+			},
+			"GAS_ENERGY_COUNTER": {
+				"GAS_ENERGY_COUNTER": ".1.GAS_ENERGY_COUNTER"
+			},
+			"GAS_POWER": {
+				"GAS_POWER": ".1.GAS_POWER"
+			},
+			"IEC_ENERGY_POWER1": {
+				"IEC_ENERGY_POWER": ".1.IEC_ENERGY_POWER"
+			},
+			"IEC_POWER1": {
+				"IEC_POWER": ".1.IEC_POWER"
+			},
+			"POWER": {
+				"POWER": ".1.POWER"
+			},
+			"IEC_ENERGY_POWER2": {
+				"IEC_ENERGY_POWER": ".2.IEC_ENERGY_POWER"
+			},
+			"IEC_POWER2": {
+				"IEC_POWER": ".2.IEC_POWER"
+			}
 		}
 	},
 	
 	// motions or presence
 	"motion": {
+		"HM-Sec-MDIR-2": {
+			"BRIGHTNESS": {
+				"state": ".1.BRIGHTNESS"
+			},
+			"MOTION": {
+				"state": ".1.MOTION"
+			},
+		},
 		"HmIP-SMI55": {
 			"motion": {
 				"state": ".3.MOTION"
@@ -2154,6 +2204,22 @@ const STATE_MAPPING = {
 	
 	// other
 	"other": {
+		"HM-Sen-DB-PCB": {
+			"PRESS_CONT": {
+				"PRESS_CONT": ".1.PRESS_CONT"
+			},
+			"PRESS_SHORT": {
+				"PRESS_SHORT": ".1.PRESS_SHORT"
+			}
+		},
+		"HM-OU-CFM-TW": {
+			"STATE1": {
+				"state": ".1.STATE"
+			},
+			"STATE2": {
+				"state": ".2.STATE"
+			}
+		},
 		"HB-OU-MP3-LED": {
 			"state": {
 				"state": ".1.STATE"
@@ -2276,6 +2342,103 @@ const STATE_MAPPING = {
 	
 	// switch
 	"switch": {
+		"HmIP-RCB1": {
+			"PRESS_LONG: {
+				"state": ".1.PRESS_LONG",
+				"action": ".1.PRESS_LONG"
+			},
+			"PRESS_SHORT": {
+				"state": ".1.PRESS_SHORT",
+				"action": ".1.PRESS_SHORT"
+			}
+		},
+		"HM-LC-Sw1-Pl-CT-R1: {
+			"STATE": {
+				"STATE": ".1.STATE"
+			}
+		},
+		"ELV-SH-BS2": {
+			"PRESS_LONG1": {
+				"state": ".1.PRESS_LONG",
+				"action": ".1.PRESS_LONG"
+			},
+			"PRESS_SHORT1": {
+				"state": ".1.PRESS_SHORT",
+				"action": ".1.PRESS_SHORT"
+			},
+			"PRESS_LONG2": {
+				"state": ".2.PRESS_LONG",
+				"action": ".2.PRESS_LONG"
+			},
+			"PRESS_SHORT2": {
+				"state": ".2.PRESS_SHORT",
+				"action": ".2.PRESS_SHORT"
+			},
+			"STATE1": {
+				"state": ".4.STATE",
+				"action": ".4.STATE"
+			},
+			"STATE2": {
+				"state": ".5.STATE",
+				"action": ".5.STATE"
+			},
+			"STATE3": {
+				"state": ".6.STATE",
+				"action": ".6.STATE"
+			},
+			"STATE4": {
+				"state": ".7.STATE",
+				"action": ".7.STATE"
+			},
+			"STATE5": {
+				"state": ".8.STATE",
+				"action": ".8.STATE"
+			},
+			"STATE6": {
+				"state": ".9.STATE",
+				"action": ".9.STATE"
+			},
+			"STATE7": {
+				"state": ".10.STATE",
+				"action": ".10.STATE"
+			}
+		},
+		"HM-LC-Sw2PBU-FM": {
+			"STATE1": {
+				"state": ".1.STATE",
+				"action": ".1.STATE"
+			},
+			"STATE2": {
+				"state": ".2.STATE",
+				"action": ".2.STATE"
+			}
+		},
+		"HM-PB-2-WM55-2": {
+			"PRESS_CONT1": {
+				"state": ".1.PRESS_CONT",
+				"action": ".1.PRESS_CONT"
+			},
+			"PRESS_LONG1": {
+				"state": ".1.PRESS_LONG",
+				"action": ".1.PRESS_LONG"
+			},
+			"PRESS_SHORT1": {
+				"state": ".1.PRESS_SHORT",
+				"action": ".1.PRESS_SHORT"
+			},
+			"PRESS_CONT2": {
+				"state": ".2.PRESS_CONT",
+				"action": ".2.PRESS_CONT"
+			},
+			"PRESS_LONG2": {
+				"state": ".2.PRESS_LONG",
+				"action": ".2.PRESS_LONG"
+			},
+			"PRESS_SHORT2": {
+				"state": ".2.PRESS_SHORT",
+				"action": ".2.PRESS_SHORT"
+			}
+		},
 		"HM-PB-2-FM": {
 			"PRESS_CONT1": {
 				"state": ".1.PRESS_CONT",
