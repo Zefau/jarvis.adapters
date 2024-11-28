@@ -1512,6 +1512,11 @@ const STATE_MAPPING = {
 				"state": ".1.STATE"
 			}
 		},
+		"HmIP-SWDM-2": {
+			"open": {
+				"state": ".1.STATE"
+			}
+		},
 		"HmIP-SWDM-B2": {
 			"open": {
 				"state": ".1.STATE"
