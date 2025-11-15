@@ -191,7 +191,7 @@ const STATE_MAPPING = {
 				"actionElement": "IconButtonAction"
 			}
 		}
-/*,
+		/*,
 		"hm-lc-bl1-fm": {
 			"level": {
 				"state": ".1.LEVEL",

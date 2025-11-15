@@ -15,24 +15,24 @@ const STATE_MAPPING = {
 	"thermostat": {
 		"valve": {
 			"state": ".Multilevel_Switch.currentValue",
-            "unit": "%",
-            "icon": "rotate-right"
+			"unit": "%",
+			"icon": "rotate-right"
 		},
 		"mode": {
 			"state": ".Thermostat_Mode.mode",
 			"action": ".Thermostat_Mode.mode",
-            "icon": {
-               "0": "radiator-off",
-               "1": "radiator",
-               "11": "radiator-disabled",
-               "15": "radiator"
-            }
+			"icon": {
+				"0": "radiator-off",
+				"1": "radiator",
+				"11": "radiator-disabled",
+				"15": "radiator"
+			}
 		},
 		"setTemperatureEnergySave": {
 			"state": ".Thermostat_Setpoint.setpoint_energySaveHeating",
 			"action": ".Thermostat_Setpoint.setpoint_energySaveHeating",
-            "unit": "°C",
-            "icon": "radiator-disabled"
+			"unit": "°C",
+			"icon": "radiator-disabled"
 		},
 		"temperature": {
 			"state": ".Multilevel_Sensor.airTemperature"

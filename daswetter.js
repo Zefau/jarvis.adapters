@@ -27,10 +27,10 @@ export function root(objects, options) {
 				Cache.set('daswetter', c);
 			}
 		})
-		.catch(() => {})
-		.finally(() => {
+			.catch(() => {})
+			.finally(() => {
 			// reject
-			reject();
-		});
+				reject();
+			});
 	});
 }

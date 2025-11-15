@@ -2830,10 +2830,10 @@ export function parse(deviceStructure, options) {
 			
 			// CUxD
 			if (deviceStructure.root.indexOf('.CUX') > -1) {
-					device.states = {
-						...device.states,
-						..._rfdc(STATE_MAPPING.CUxD['HM-LC-Sw1PBU-FM'])
-					}
+				device.states = {
+					...device.states,
+					..._rfdc(STATE_MAPPING.CUxD['HM-LC-Sw1PBU-FM'])
+				}
 			}
 			
 			// validate states
